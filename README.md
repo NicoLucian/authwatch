@@ -3,7 +3,7 @@
 **Triage Linux authentication logs from the terminal.** One log file in, ranked findings out, each one mapped to MITRE ATT&CK and NIST CSF so the result can go straight into a ticket.
 
 [![tests](https://github.com/NicoLucian/authwatch/actions/workflows/tests.yml/badge.svg)](https://github.com/NicoLucian/authwatch/actions/workflows/tests.yml)
-![python](https://img.shields.io/badge/python-3.9%2B-blue)
+![python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -23,7 +23,7 @@ It is deliberately small. No agent, no database, no SIEM licence. One Python fil
 - Applies five explainable detection rules: brute force, password spraying, successful login after failures, privileged-account targeting and off-hours logins.
 - Ranks findings by severity and writes them as a console summary, a Markdown incident report or JSON.
 - Returns a meaningful exit code (`--fail-on`), so it can gate a cron job or a CI pipeline.
-- **Zero third-party dependencies** — standard library only. It runs on any machine with Python 3.9+, including a jump host where you cannot install anything.
+- **Zero third-party dependencies** — standard library only. It runs on any machine with Python 3.11+, including a jump host where you cannot install anything.
 
 ## Quickstart
 
@@ -112,7 +112,7 @@ authwatch/
 python -m unittest discover -s tests -v
 ```
 
-27 tests covering the parser (syslog, ISO, `pam_unix`, noise rejection) and every rule, including the negative cases that matter most: failures spread outside the window, a single account that must **not** be reported as spraying, and clean logins that must stay silent. CI runs the suite on Python 3.9, 3.11 and 3.12.
+27 tests covering the parser (syslog, ISO, `pam_unix`, noise rejection) and every rule, including the negative cases that matter most: failures spread outside the window, a single account that must **not** be reported as spraying, and clean logins that must stay silent. CI runs the suite on Python 3.11 and 3.12.
 
 ## Design notes and limitations
 
@@ -132,7 +132,7 @@ python -m unittest discover -s tests -v
 
 ## Español
 
-`authwatch` es una herramienta de triaje de logs de autenticación de Linux: lee `auth.log`, `secure` o una exportación de `journalctl` y devuelve los hallazgos ordenados por severidad, cada uno mapeado a MITRE ATT&CK y NIST CSF. Sin dependencias externas y sin instalación: solo Python 3.9 o superior. Sirve para responder rápido a la pregunta que aparece en todo turno de SOC: *¿esto es ruido o es un incidente?*
+`authwatch` es una herramienta de triaje de logs de autenticación de Linux: lee `auth.log`, `secure` o una exportación de `journalctl` y devuelve los hallazgos ordenados por severidad, cada uno mapeado a MITRE ATT&CK y NIST CSF. Sin dependencias externas y sin instalación: solo Python 3.11 o superior. Sirve para responder rápido a la pregunta que aparece en todo turno de SOC: *¿esto es ruido o es un incidente?*
 
 ```bash
 python -m authwatch.cli data/sample_auth.log --year 2026

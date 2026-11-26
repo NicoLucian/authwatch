@@ -12,7 +12,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.11", "3.12"]
+        # 3.9 is intentionally absent: ubuntu-latest (24.04) no longer ships it
+        # in the runner tool cache and setup-python fails before the tests run.
+        # Use an ubuntu-22.04 matrix entry if 3.9 support has to be verified.
+        python-version: ["3.11", "3.12"]
 
     steps:
       - uses: actions/checkout@v4

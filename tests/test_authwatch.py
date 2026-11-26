@@ -216,8 +216,9 @@ class CliTests(unittest.TestCase):
             handle.write("\n".join(lines) + "\n")
 
     def tearDown(self):
-        if os.path.exists(self.path):
-            os.remove(self.path)
+        for path in (self.path, self.path + ".json"):
+            if os.path.exists(path):
+                os.remove(path)
 
     def test_exit_code_when_findings_reach_threshold(self):
         self.assertEqual(main([self.path, "--fail-on", "high", "--format", "json",
