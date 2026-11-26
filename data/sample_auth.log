@@ -1,0 +1,134 @@
+Jan  6 00:42:00 web01 CRON[900]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 00:42:00 web01 sshd[3100]: Connection closed by 10.0.0.12 port 41000 [preauth]
+Jan  6 00:42:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 02:57:00 web01 CRON[901]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 02:57:00 web01 sshd[3101]: Connection closed by 10.0.0.12 port 41001 [preauth]
+Jan  6 02:57:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 04:34:00 web01 CRON[902]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 04:34:00 web01 sshd[3102]: Connection closed by 10.0.0.12 port 41002 [preauth]
+Jan  6 04:34:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 06:05:00 web01 CRON[903]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 06:05:00 web01 sshd[3103]: Connection closed by 10.0.0.12 port 41003 [preauth]
+Jan  6 06:05:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 08:29:00 web01 sshd[2001]: Accepted publickey for svc_deploy from 10.0.0.42 port 52965 ssh2: RSA SHA256:abc529
+Jan  6 08:59:00 web01 CRON[904]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 08:59:00 web01 sshd[3104]: Connection closed by 10.0.0.12 port 41004 [preauth]
+Jan  6 08:59:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 10:00:00 web01 CRON[905]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 10:00:00 web01 sshd[3105]: Connection closed by 10.0.0.12 port 41005 [preauth]
+Jan  6 10:00:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 11:42:00 web01 sshd[2002]: Accepted publickey for mgonzalez from 10.0.0.42 port 54940 ssh2: RSA SHA256:abc821
+Jan  6 12:30:00 web01 CRON[906]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 12:30:00 web01 sshd[3106]: Connection closed by 10.0.0.12 port 41006 [preauth]
+Jan  6 12:30:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 14:10:00 web01 sshd[2003]: Accepted publickey for jperez from 10.0.0.12 port 52622 ssh2: RSA SHA256:abc931
+Jan  6 14:29:00 web01 CRON[907]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 14:29:00 web01 sshd[3107]: Connection closed by 10.0.0.12 port 41007 [preauth]
+Jan  6 14:29:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 16:55:00 web01 CRON[908]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 16:55:00 web01 sshd[3108]: Connection closed by 10.0.0.12 port 41008 [preauth]
+Jan  6 16:55:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 17:44:00 web01 sshd[2004]: Accepted publickey for jperez from 10.0.0.42 port 42081 ssh2: RSA SHA256:abc684
+Jan  6 18:22:00 web01 CRON[909]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 18:22:00 web01 sshd[3109]: Connection closed by 10.0.0.12 port 41009 [preauth]
+Jan  6 18:22:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 20:09:00 web01 CRON[910]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 20:09:00 web01 sshd[3110]: Connection closed by 10.0.0.12 port 41010 [preauth]
+Jan  6 20:09:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  6 22:50:00 web01 CRON[911]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  6 22:50:00 web01 sshd[3111]: Connection closed by 10.0.0.12 port 41011 [preauth]
+Jan  6 22:50:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 00:35:00 web01 CRON[912]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 00:35:00 web01 sshd[3112]: Connection closed by 10.0.0.12 port 41012 [preauth]
+Jan  7 00:35:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 02:01:00 web01 CRON[913]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 02:01:00 web01 sshd[3113]: Connection closed by 10.0.0.12 port 41013 [preauth]
+Jan  7 02:01:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 02:10:00 web01 sshd[2017]: Failed password for ncancino from 203.0.113.45 port 51000 ssh2
+Jan  7 02:10:18 web01 sshd[2018]: Failed password for ncancino from 203.0.113.45 port 51001 ssh2
+Jan  7 02:10:36 web01 sshd[2019]: Failed password for ncancino from 203.0.113.45 port 51002 ssh2
+Jan  7 02:10:54 web01 sshd[2020]: Failed password for ncancino from 203.0.113.45 port 51003 ssh2
+Jan  7 02:11:12 web01 sshd[2021]: Failed password for ncancino from 203.0.113.45 port 51004 ssh2
+Jan  7 02:11:30 web01 sshd[2022]: Failed password for ncancino from 203.0.113.45 port 51005 ssh2
+Jan  7 02:11:48 web01 sshd[2023]: Failed password for ncancino from 203.0.113.45 port 51006 ssh2
+Jan  7 02:12:06 web01 sshd[2024]: Failed password for ncancino from 203.0.113.45 port 51007 ssh2
+Jan  7 02:12:24 web01 sshd[2025]: Failed password for ncancino from 203.0.113.45 port 51008 ssh2
+Jan  7 02:12:42 web01 sshd[2026]: Failed password for ncancino from 203.0.113.45 port 51009 ssh2
+Jan  7 02:13:00 web01 sshd[2027]: Failed password for ncancino from 203.0.113.45 port 51010 ssh2
+Jan  7 02:13:18 web01 sshd[2028]: Failed password for ncancino from 203.0.113.45 port 51011 ssh2
+Jan  7 02:14:00 web01 sshd[2029]: Accepted password for ncancino from 203.0.113.45 port 51240 ssh2
+Jan  7 04:18:00 web01 CRON[914]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 04:18:00 web01 sshd[3114]: Connection closed by 10.0.0.12 port 41014 [preauth]
+Jan  7 04:18:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 06:52:00 web01 CRON[915]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 06:52:00 web01 sshd[3115]: Connection closed by 10.0.0.12 port 41015 [preauth]
+Jan  7 06:52:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 08:35:00 web01 sshd[2005]: Accepted publickey for svc_deploy from 10.0.0.12 port 40000 ssh2: RSA SHA256:abc883
+Jan  7 08:42:00 web01 CRON[916]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 08:42:00 web01 sshd[3116]: Connection closed by 10.0.0.12 port 41016 [preauth]
+Jan  7 08:42:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 10:28:00 web01 CRON[917]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 10:28:00 web01 sshd[3117]: Connection closed by 10.0.0.12 port 41017 [preauth]
+Jan  7 10:28:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 11:10:00 web01 sshd[2006]: Accepted publickey for mgonzalez from 10.0.0.42 port 43902 ssh2: RSA SHA256:abc626
+Jan  7 12:52:00 web01 CRON[918]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 12:52:00 web01 sshd[3118]: Connection closed by 10.0.0.12 port 41018 [preauth]
+Jan  7 12:52:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 14:16:00 web01 sshd[2007]: Accepted publickey for jperez from 10.0.0.42 port 45283 ssh2: RSA SHA256:abc724
+Jan  7 14:56:00 web01 CRON[919]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 14:56:00 web01 sshd[3119]: Connection closed by 10.0.0.12 port 41019 [preauth]
+Jan  7 14:56:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 16:38:00 web01 CRON[920]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 16:38:00 web01 sshd[3120]: Connection closed by 10.0.0.12 port 41020 [preauth]
+Jan  7 16:38:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 17:42:00 web01 sshd[2008]: Accepted publickey for ncancino from 10.0.0.42 port 46073 ssh2: RSA SHA256:abc681
+Jan  7 18:02:00 web01 CRON[921]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 18:02:00 web01 sshd[3121]: Connection closed by 10.0.0.12 port 41021 [preauth]
+Jan  7 18:02:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 20:44:00 web01 CRON[922]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 20:44:00 web01 sshd[3122]: Connection closed by 10.0.0.12 port 41022 [preauth]
+Jan  7 20:44:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  7 22:03:00 web01 pam_unix[4244]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=203.0.113.45  user=ncancino
+Jan  7 22:07:00 web01 CRON[923]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  7 22:07:00 web01 sshd[3123]: Connection closed by 10.0.0.12 port 41023 [preauth]
+Jan  7 22:07:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  8 00:33:00 web01 CRON[924]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  8 00:33:00 web01 sshd[3124]: Connection closed by 10.0.0.12 port 41024 [preauth]
+Jan  8 00:33:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  8 02:05:00 web01 CRON[925]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  8 02:05:00 web01 sshd[3125]: Connection closed by 10.0.0.12 port 41025 [preauth]
+Jan  8 02:05:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  8 04:17:00 web01 CRON[926]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  8 04:17:00 web01 sshd[3126]: Connection closed by 10.0.0.12 port 41026 [preauth]
+Jan  8 04:17:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  8 06:52:00 web01 CRON[927]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  8 06:52:00 web01 sshd[3127]: Connection closed by 10.0.0.12 port 41027 [preauth]
+Jan  8 06:52:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  8 08:00:00 web01 CRON[928]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  8 08:00:00 web01 sshd[3128]: Connection closed by 10.0.0.12 port 41028 [preauth]
+Jan  8 08:00:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  8 08:24:00 web01 sshd[2009]: Accepted publickey for dmunoz from 10.0.0.42 port 52053 ssh2: RSA SHA256:abc216
+Jan  8 09:05:00 web01 sshd[2030]: Failed password for invalid user admin from 198.51.100.7 port 33000 ssh2
+Jan  8 09:09:00 web01 sshd[2031]: Failed password for invalid user jperez from 198.51.100.7 port 33001 ssh2
+Jan  8 09:13:00 web01 sshd[2032]: Failed password for invalid user dmunoz from 198.51.100.7 port 33002 ssh2
+Jan  8 09:17:00 web01 sshd[2033]: Failed password for invalid user mgonzalez from 198.51.100.7 port 33003 ssh2
+Jan  8 09:21:00 web01 sshd[2034]: Failed password for invalid user test from 198.51.100.7 port 33004 ssh2
+Jan  8 09:25:00 web01 sshd[2035]: Failed password for invalid user oracle from 198.51.100.7 port 33005 ssh2
+Jan  8 10:48:00 web01 CRON[929]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  8 10:48:00 web01 sshd[3129]: Connection closed by 10.0.0.12 port 41029 [preauth]
+Jan  8 10:48:00 web01 systemd[1]: Started Daily apt download activities.
+Jan  8 11:29:00 web01 sshd[2010]: Accepted publickey for svc_deploy from 10.0.0.12 port 56038 ssh2: RSA SHA256:abc909
+Jan  8 14:18:00 web01 sshd[2011]: Accepted publickey for svc_deploy from 10.0.0.42 port 47914 ssh2: RSA SHA256:abc785
+Jan  8 17:15:00 web01 sshd[2012]: Accepted publickey for svc_deploy from 10.0.0.77 port 43559 ssh2: RSA SHA256:abc568
+Jan  8 21:30:00 web01 sshd[2036]: Failed password for root from 192.0.2.99 port 60000 ssh2
+Jan  8 21:37:00 web01 sshd[2037]: Failed password for root from 192.0.2.99 port 60001 ssh2
+Jan  8 21:44:00 web01 sshd[2038]: Failed password for root from 192.0.2.99 port 60002 ssh2
+Jan  8 21:51:00 web01 sshd[2039]: Failed password for root from 192.0.2.99 port 60003 ssh2
+Jan  8 21:58:00 web01 sshd[2040]: Failed password for root from 192.0.2.99 port 60004 ssh2
+Jan  8 22:05:00 web01 sshd[2041]: Failed password for root from 192.0.2.99 port 60005 ssh2
+Jan  8 22:15:00 web01 sshd[2042]: Invalid user administrator from 192.0.2.99 port 60120
+Jan  9 03:12:00 web01 sshd[2043]: Accepted password for svc_deploy from 10.0.0.42 port 47011 ssh2
+Jan  9 08:06:00 web01 sshd[2013]: Accepted publickey for dmunoz from 10.0.0.77 port 50269 ssh2: RSA SHA256:abc841
+Jan  9 11:04:00 web01 sshd[2014]: Accepted publickey for svc_deploy from 10.0.0.77 port 50366 ssh2: RSA SHA256:abc990
+Jan  9 14:37:00 web01 sshd[2015]: Accepted publickey for mgonzalez from 10.0.0.12 port 59387 ssh2: RSA SHA256:abc481
+Jan  9 17:32:00 web01 sshd[2016]: Accepted publickey for dmunoz from 10.0.0.12 port 45046 ssh2: RSA SHA256:abc768
