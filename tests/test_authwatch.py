@@ -23,6 +23,7 @@ from authwatch.parser import (  # noqa: E402
     INVALID,
     SUCCESS,
     Event,
+    count_time_bases,
     parse_line,
     parse_lines,
 )
@@ -257,3 +258,44 @@ class CliTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TimeAxisTests(unittest.TestCase):
+    """El eje temporal: syslog es hora de pared, ISO es UTC. Se declara o se avisa."""
+
+    SYSLOG = ("Jan  6 08:00:01 web01 sshd[1]: Failed password for root "
+              "from 203.0.113.45 port 1 ssh2")
+
+    def test_syslog_stays_wall_clock_without_an_offset(self):
+        event = parse_line(self.SYSLOG, year=2026)
+        self.assertEqual(event.ts, datetime(2026, 1, 6, 8, 0, 1))
+
+    def test_syslog_offset_moves_the_event_to_utc(self):
+        # Chile en verano es UTC-3: 08:00 local son 11:00 UTC.
+        event = parse_line(self.SYSLOG, year=2026, syslog_offset=-3)
+        self.assertEqual(event.ts, datetime(2026, 1, 6, 11, 0, 1))
+
+    def test_iso_and_offset_syslog_land_on_the_same_axis(self):
+        iso = parse_line(
+            "2026-01-06T11:00:01+0000 web01 sshd[1]: Failed password for root "
+            "from 203.0.113.45 port 1 ssh2"
+        )
+        syslog = parse_line(self.SYSLOG, year=2026, syslog_offset=-3)
+        self.assertEqual(iso.ts, syslog.ts)
+
+    def test_count_time_bases_flags_a_mixed_file(self):
+        lines = [
+            self.SYSLOG,
+            "2026-01-06T08:00:01+0000 web01 sshd[1]: Failed password for root "
+            "from 203.0.113.45 port 1 ssh2",
+        ]
+        bases = count_time_bases(lines)
+        self.assertEqual(bases["syslog"], 1)
+        self.assertEqual(bases["iso"], 1)
+        self.assertTrue(bases["mixed"])
+
+    def test_count_time_bases_reports_a_single_base(self):
+        bases = count_time_bases([self.SYSLOG, self.SYSLOG])
+        self.assertEqual(bases["syslog"], 2)
+        self.assertEqual(bases["iso"], 0)
+        self.assertFalse(bases["mixed"])

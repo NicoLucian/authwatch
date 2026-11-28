@@ -8,7 +8,7 @@ from typing import List, Optional
 
 from . import __version__
 from .detect import SEVERITY_ORDER, run_all
-from .parser import parse_file
+from .parser import count_time_bases, parse_file
 from .report import build_stats, render_console, render_json, render_markdown
 
 
@@ -22,6 +22,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("logfile", help="auth.log / secure / journalctl export to analyse")
     parser.add_argument("--year", type=int, default=None,
                         help="year to assume for syslog lines that omit it (default: current)")
+    parser.add_argument("--syslog-offset", type=float, default=None, metavar="HOURS",
+                        help="UTC offset of the hosts writing syslog lines, e.g. -3 for Chile; "
+                             "converts them to UTC so they share an axis with ISO timestamps")
     parser.add_argument("--threshold", type=int, default=5,
                         help="failed attempts needed to raise a brute-force finding (default: 5)")
     parser.add_argument("--window", type=int, default=10,
@@ -52,18 +55,36 @@ def _parse_hours(value: str) -> tuple:
     return start_hour, end_hour
 
 
+def _check_offset(value: float) -> float:
+    if not -14 <= value <= 14:
+        raise SystemExit("--syslog-offset must be between -14 and 14 hours")
+    return value
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     args = build_parser().parse_args(argv)
     start_hour, end_hour = _parse_hours(args.business_hours)
+    syslog_offset = _check_offset(args.syslog_offset) if args.syslog_offset is not None else None
 
     try:
-        events = parse_file(args.logfile, year=args.year)
+        with open(args.logfile, "r", encoding="utf-8", errors="replace") as handle:
+            bases = count_time_bases(handle)
+        events = parse_file(args.logfile, year=args.year, syslog_offset=syslog_offset)
     except FileNotFoundError:
         print(f"authwatch: file not found: {args.logfile}", file=sys.stderr)
         return 2
     except OSError as exc:
         print(f"authwatch: cannot read {args.logfile}: {exc}", file=sys.stderr)
         return 2
+
+    if bases["mixed"] and syslog_offset is None:
+        print(
+            "authwatch: warning: this file mixes ISO timestamps (normalised to UTC) with "
+            f"syslog timestamps ({bases['syslog']} lines, host wall clock). Windows and "
+            "off-hours results may be shifted. Pass --syslog-offset to declare the hosts' "
+            "UTC offset.",
+            file=sys.stderr,
+        )
 
     findings = run_all(
         events,
