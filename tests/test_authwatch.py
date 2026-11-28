@@ -79,6 +79,28 @@ class ParserTests(unittest.TestCase):
         event = parse_line(line)
         self.assertEqual(event.ts, datetime(2026, 1, 6, 8, 0, 1))
 
+    def test_iso_timestamp_with_offset_is_normalised_to_utc(self):
+        line = ("2026-01-06T08:00:01+0300 web01 sshd[1234]: Failed password for root "
+                "from 203.0.113.45 port 51234 ssh2")
+        event = parse_line(line)
+        self.assertEqual(event.ts, datetime(2026, 1, 6, 5, 0, 1))
+
+    def test_mixed_formats_keep_their_own_convention(self):
+        """Contrato: syslog = hora de pared del host, ISO = UTC.
+
+        Un archivo que mezcle formatos compara convenciones distintas (desfase = offset
+        local). Queda fijado aquí para que sea una decisión visible y no un silencio.
+        """
+        syslog = parse_line(
+            "Jan  6 08:00:01 web01 sshd[1]: Failed password for root from 203.0.113.45 port 1 ssh2",
+            year=2026,
+        )
+        iso = parse_line(
+            "2026-01-06T08:00:01+0300 web01 sshd[1]: Failed password for root from 203.0.113.45 port 1 ssh2"
+        )
+        self.assertEqual(syslog.ts, datetime(2026, 1, 6, 8, 0, 1))
+        self.assertEqual(iso.ts, datetime(2026, 1, 6, 5, 0, 1))
+
     def test_noise_is_ignored(self):
         self.assertIsNone(parse_line("Jan  6 08:00:00 web01 CRON[900]: (root) CMD (backup)"))
         self.assertIsNone(parse_line("Jan  6 08:00:00 web01 sshd[900]: Connection closed "

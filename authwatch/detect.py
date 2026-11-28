@@ -240,9 +240,20 @@ def detect_root_targeting(events: Sequence[Event], threshold: int = 3) -> List[F
 def detect_off_hours(
     events: Sequence[Event], start_hour: int = 7, end_hour: int = 20
 ) -> List[Finding]:
-    """Successful logins outside the organisation's working window."""
+    """Successful logins outside the organisation's working window.
+
+    A window whose start is after its end wraps midnight (e.g. 22-6); a window with
+    equal bounds means every hour is business time, so nothing is off-hours.
+    """
+    def _is_business(hour: int) -> bool:
+        if start_hour == end_hour:
+            return True
+        if start_hour < end_hour:
+            return start_hour <= hour < end_hour
+        return hour >= start_hour or hour < end_hour
+
     by_user: List[Event] = [
-        e for e in events if e.kind == SUCCESS and not (start_hour <= e.ts.hour < end_hour)
+        e for e in events if e.kind == SUCCESS and not _is_business(e.ts.hour)
     ]
     findings: List[Finding] = []
 

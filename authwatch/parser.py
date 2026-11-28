@@ -18,7 +18,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Iterable, List, Optional
 
 MONTHS = {
@@ -79,17 +79,30 @@ class Event:
 
 
 def _parse_syslog_ts(mon: str, day: str, hms: str, year: Optional[int]) -> Optional[datetime]:
+    """Hora de pared tal como viene escrita: syslog no trae offset, así que es naive
+    y representa el reloj local del host que escribió el log."""
     month = MONTHS.get(mon)
     if month is None:
         return None
     try:
         hour, minute, second = (int(x) for x in hms.split(":"))
-        return datetime(year or datetime.now().year, month, int(day), hour, minute, second)
+        if year is None:
+            now = datetime.now()
+            year = now.year
+            if month > now.month:
+                year -= 1
+        return datetime(year, month, int(day), hour, minute, second)
     except ValueError:
         return None
 
 
 def _parse_iso_ts(value: str) -> Optional[datetime]:
+    """Normalizado a UTC y devuelto naive.
+
+    Ojo: syslog entrega hora de pared y esto entrega UTC. Un archivo que mezcle ambos
+    formatos compara dos convenciones distintas (desfase = offset local). Es a propósito,
+    no un accidente: el test test_mixed_formats_keep_their_own_convention lo fija.
+    """
     cleaned = value.replace(",", ".")
     if cleaned.endswith("Z"):
         cleaned = cleaned[:-1] + "+00:00"
@@ -99,6 +112,8 @@ def _parse_iso_ts(value: str) -> Optional[datetime]:
         dt = datetime.fromisoformat(cleaned)
     except ValueError:
         return None
+    if dt.tzinfo is not None:
+        dt = dt.astimezone(timezone.utc)
     return dt.replace(tzinfo=None)
 
 
